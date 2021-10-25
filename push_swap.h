@@ -5,4 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int	input_check(int ac, char **av);
+
 #endif

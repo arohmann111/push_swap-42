@@ -6,8 +6,21 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/10/22 09:58:55 by arohmann         ###   ########.fr        #
+#    Updated: 2021/10/25 17:18:13 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+SRC = main.c
+
+all:
+
+clean:
+
+fclean:
+
+re:
+
+bonus:
+

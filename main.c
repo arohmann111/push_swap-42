@@ -2,5 +2,6 @@
 
 int	main(int ac, char **av)
 {
+	input_check(ac, av);
 	
 }

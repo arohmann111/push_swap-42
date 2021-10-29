@@ -20,6 +20,26 @@ typedef struct s_node
 	struct s_node	*prev;
 } t_node;
 
+typedef struct s_data
+{
+	t_node	*head_a;
+	t_node	*head_b;
+} t_data;
+
 int	input_check(int ac, char **av);
+
+/**********************************************************/
+/*                      INSTRUCTIONS                      */
+/**********************************************************/
+
+void	sa(t_data *data);
+void	sb(t_data *data);
+void	ss(t_data *data);
+void	ra(t_data *data);
+void	rb(t_data *data);
+void	rr(t_data *data);
+void	rra(t_data *data);
+void	rrb(t_data *data);
+void	rrr(t_data *data);
 
 #endif

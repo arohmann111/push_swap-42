@@ -13,20 +13,21 @@ t_node	*new_node(int content)
 	return (new);
 }
 
-void	add_node_back(t_node *head_a, t_node *new)
+void	add_node_back(t_data *data, t_node *new)
 {
 	t_node	*last;
 
-	if (head_a != NULL)
+	if (data->head_a != NULL)
 	{
-		head_a->prev->next = new;
-		new->prev = head_a->prev;
-		head_a->prev = new;
-		new->next = head_a;
+		data->head_a->prev->next = new;
+		new->prev = data->head_a->prev;
+		data->head_a->prev = new;
+		new->next = data->head_a;
 	}
-	// else
-		// head_a = new;
+	else
+		data->head_a = new;
 }
+
 
 void	print_node(t_node *new)
 {
@@ -35,18 +36,18 @@ void	print_node(t_node *new)
 	printf(GREEN"next: %p\n\n"RE, new->next);
 }
 
-void	print(t_node *head_a, t_node *new)
+void	print(t_data *data, t_node *new)
 {
 	t_node *item;
 	int i;
 
-	if (head_a)
+	if (data->head_a)
     {
-        item = head_a;
+        item = data->head_a;
         i = 0;
         printf(CYAN"%s", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
         printf("Stack A \n"RE);
-        while (item->next != head_a && i < 10)
+        while (item->next != data->head_a && i < 10)
         {
             printf("%i\n", item->num);
             print_node(item);
@@ -64,26 +65,31 @@ void	print(t_node *head_a, t_node *new)
 
 int	main(int ac, char **av)
 {
-	t_node *new;
-	t_node *head_a;
+	t_data	*data;
+	t_node  *new;
 	int		tmp;
 	int i;
-
+	data = (t_data *)malloc(sizeof(t_data));
+	if (data == NULL)
+		return (-1);
 	i = 1;
-	head_a = new_node(ft_atoi(*(&av[i++])));	
-	head_a->next = head_a;
-	head_a->prev = head_a;
+	data->head_a = new_node(ft_atoi(*(&av[i++])));	
+	data->head_a->next = data->head_a;
+	data->head_a->prev = data->head_a;
 
 
 	while (av[i] != NULL)
 	{
 		tmp = ft_atoi(*(&av[i])); //&av[1]
 		new = new_node(tmp);
-		add_node_back(head_a, new);
-		print(head_a, new);
+		add_node_back(data, new);
+		print(data, new);
 		i++;
 	}
-
+	sa(data);
+	print(data, new);
+	rra(data);
+	print(data, new);
 	//input_check(ac, av);
 	
 }

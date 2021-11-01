@@ -29,6 +29,13 @@ typedef struct s_data
 int	input_check(int ac, char **av);
 
 /**********************************************************/
+/*                        NODES                           */
+/**********************************************************/
+
+void	add_node_back(t_node **head, t_node *new);
+void	add_node_front(t_node *head, t_node *new);
+
+/**********************************************************/
 /*                      INSTRUCTIONS                      */
 /**********************************************************/
 
@@ -41,5 +48,8 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
+void	pa(t_data *data, t_node *elem);
+
+
 
 #endif

@@ -29,7 +29,7 @@ void	print(t_data *data, t_node *new)
 	}
 }
 
-/* void	print(t_data *data, t_node *new)
+/* void	printa(t_data *data, t_node *new)
 {
 	t_node *item;
 	int i;

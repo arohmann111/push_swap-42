@@ -33,7 +33,8 @@ int	input_check(int ac, char **av);
 /**********************************************************/
 
 void	add_node_back(t_node **head, t_node *new);
-void	add_node_front(t_node *head, t_node *new);
+void	add_node_front(t_node **head, t_node *new);
+t_node	*rem_node(t_node **r_node);
 
 /**********************************************************/
 /*                      INSTRUCTIONS                      */
@@ -48,8 +49,8 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
-void	pa(t_data *data, t_node *elem);
-
+void	pb(t_data *data);
+void	pa(t_data *data);
 
 
 #endif

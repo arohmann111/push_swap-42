@@ -27,13 +27,20 @@ typedef struct s_data
 } t_data;
 
 int	input_check(int ac, char **av);
-
+/**********************************************************/
+/*                        PRINT                           */
+/**********************************************************/
+void	print(t_data *data, t_node *new);
+void	printa(t_data *data, t_node *new);
+void	printb(t_data *data, t_node *new);
+void	print_node(t_node *new);
+void	print_node_b(t_node *new, t_node *newb);
 /**********************************************************/
 /*                        NODES                           */
 /**********************************************************/
-
-void	add_node_back(t_node **head, t_node *new);
-void	add_node_front(t_node **head, t_node *new);
+t_node	*new_node(int content);
+void	add_node_prev(t_node **head, t_node *new);
+void	add_node_next(t_node **head, t_node *new);
 t_node	*rem_node(t_node **r_node);
 
 /**********************************************************/

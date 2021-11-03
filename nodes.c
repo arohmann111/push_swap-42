@@ -28,8 +28,6 @@ void	add_node_prev(t_node **head, t_node *new)
 
 void	add_node_next(t_node **head, t_node *new)
 {
-	t_node	*last;
-
 	if (*head != NULL)
 	{
 		(*head)->next->prev = new;

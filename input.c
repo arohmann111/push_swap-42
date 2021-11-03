@@ -10,4 +10,5 @@ int	input_check(int ac, char **av)
 		
 		i++;
 	}
+	return (0);
 }

@@ -30,9 +30,9 @@ int	input_check(int ac, char **av);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/
-void	print(t_data *data, t_node *new);
-void	printa(t_data *data, t_node *new);
-void	printb(t_data *data, t_node *new);
+void	print(t_data *data);
+void	printa(t_data *data);
+void	printb(t_data *data);
 void	print_node(t_node *new);
 void	print_node_b(t_node *new, t_node *newb);
 /**********************************************************/

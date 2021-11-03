@@ -4,7 +4,6 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 	t_node  *new;
-	int		tmp;
 	int i;
 	data = (t_data *)malloc(sizeof(t_data));
 	if (data == NULL)
@@ -13,45 +12,23 @@ int	main(int ac, char **av)
 	data->head_a = NULL;
 	data->head_b = NULL;
 
-	printa(data, new);
-	printb(data, new);
-	while (av[i] != NULL)
+	printa(data);
+	printb(data);
+	if (ac > 2)
 	{
-		new = new_node(ft_atoi(*(&av[i])));
-		add_node_prev(&data->head_a, new);
-		printb(data, new);
-		printa(data, new);
-		i++;
+		while (av[i] != NULL)
+		{
+			new = new_node(ft_atoi(*(&av[i])));
+			add_node_prev(&data->head_a, new);
+			printb(data);
+			printa(data);
+			i++;
+		}
+
+		pb(data);
+		printa(data);
+		printb(data);
 	}
-	
-	pb(data);
-	printa(data, new);
-	printb(data, new);
-	pb(data);
-	printa(data, new);
-	printb(data, new);
-	pb(data);
-	printa(data, new);
-	printb(data, new);
-	pb(data);
-	printa(data, new);
-	printb(data, new);
-	pa(data);
-	printa(data, new);
-	printb(data, new);
-	pa(data);
-	printa(data, new);
-	printb(data, new);
-	pa(data);
-	printa(data, new);
-	printb(data, new);
-	pa(data);
-	printa(data, new);
-	printb(data, new);
-	rra(data);
-	printa(data, new);
-	printb(data, new);
-	sa(data);
-	printa(data, new);
-	printb(data, new);
+	else 
+		write(1,"No input!", 10);
 }

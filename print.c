@@ -6,13 +6,13 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:45:46 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/02 17:00:48 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/03 17:46:28 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print(t_data *data, t_node *new)
+void	print(t_data *data)
 {
 	t_node *item;
 	t_node *itemb;
@@ -56,7 +56,7 @@ void	print_node_b(t_node *new, t_node *newb)
 	printf(GREEN"next: %p					%p\n\n"RE, new->next, newb->next);
 }
 
-void	printa(t_data *data, t_node *new)
+void	printa(t_data *data)
 {
 	t_node *item;
 	int i;
@@ -83,7 +83,7 @@ void	printa(t_data *data, t_node *new)
 	}
 }
 
-void	printb(t_data *data, t_node *new)
+void	printb(t_data *data)
 {
 	t_node *item;
 	int i;

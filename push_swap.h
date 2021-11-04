@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "libft.h"
+#include "./libft/libft.h"
 
 #define GREEN  "\x1B[32m"
 #define CVIO  "\x1B[35m"

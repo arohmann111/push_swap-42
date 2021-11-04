@@ -12,8 +12,10 @@
 
 NAME = push_swap
 
-FLAGS = -Wall -Werror -Wextra -Ilibft -Llibft -lft
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra
 
+LDFLAGS = -Ilibft -Llibft -lft
 LPATH = ./libft/
 
 SRC = main.c \
@@ -23,13 +25,15 @@ rev_rotate.c \
 rotate.c \
 swap.c \
 print.c 
+%.o: %.c
+	$(CC) -c $(CFLAGS) $< -o $@
 
 .PHONY: libft all clean fclean re bonus $(NAME)
 
 all: $(NAME)
 
 $(NAME): libft
-	gcc $(FLAGS) $(SRC) -o $(NAME)
+	$(CC) $(CFLAGS) $(LDFLAGS) '*.o' -o $(NAME)
 
 libft:
 	make -C $(LPATH)

@@ -30,5 +30,5 @@ int	main(int ac, char **av)
 		printb(data);
 	}
 	else 
-		write(1,"No input!", 10);
+		write(1,"No input!\n", 11);
 }

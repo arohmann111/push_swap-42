@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/03 17:41:42 by arohmann         ###   ########.fr        #
+#    Updated: 2021/11/04 17:39:53 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,15 +25,15 @@ rev_rotate.c \
 rotate.c \
 swap.c \
 print.c 
-%.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+#%.o: %.c
+#	$(CC) -c $(CFLAGS) $< -o $@
 
 .PHONY: libft all clean fclean re bonus $(NAME)
 
 all: $(NAME)
 
 $(NAME): libft
-	$(CC) $(CFLAGS) $(LDFLAGS) '*.o' -o $(NAME)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(SRC) -o $(NAME)
 
 libft:
 	make -C $(LPATH)

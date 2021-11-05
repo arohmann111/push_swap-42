@@ -6,12 +6,12 @@
 #include <stdlib.h>
 #include "./libft/libft.h"
 
-#define GREEN  "\x1B[32m"
-#define CVIO  "\x1B[35m"
-#define RED  "\x1B[31m"
-#define YELL  "\x1B[33m"
-#define CYAN  "\x1B[36m"
-#define RE  "\x1B[0m"
+#define GREEN  "\033[32m"
+#define CVIO  "\033[35m"
+#define RED  "\033[31m"
+#define YELL  "\033[33m"
+#define CYAN  "\033[36;1;5m"
+#define RE  "\033[0m"
 
 typedef struct s_node
 {

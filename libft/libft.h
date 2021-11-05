@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 09:25:38 by arohmann          #+#    #+#             */
-/*   Updated: 2021/09/27 19:58:23 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/04 19:33:43 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,9 @@ char	*ft_strchr(const char *str, int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 size_t	ft_strlen(const char *str);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
-int		ft_atoi(const char *str);
+int		ft_atoi(char *str, int *error);
 double	ft_atod(char *s, int *error);
+long	ft_atol(char *s, int *error);
 int		ft_strcmp(const char *str1, const char *str2);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

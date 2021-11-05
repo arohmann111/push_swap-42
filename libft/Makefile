@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/17 11:04:41 by arohmann          #+#    #+#              #
-#    Updated: 2021/09/27 19:55:43 by arohmann         ###   ########.fr        #
+#    Updated: 2021/11/05 09:26:22 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ ft_isdigit.c \
 ft_isprint.c \
 ft_itoa.c \
 ft_atod_bonus.c \
+ft_atol_bonus.c \
 ft_memccpy.c \
 ft_memchr.c \
 ft_memcmp.c \
@@ -71,7 +72,7 @@ $(NAME):
 bonus:
 	gcc $(CFLAGS) ft_*.c
 	ar -crs $(NAME) ft_*.o
-	ar -t $(NAME)
+	@ar -t $(NAME)
 
 clean:
 	rm -f *.o *~

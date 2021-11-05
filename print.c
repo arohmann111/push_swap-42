@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:45:46 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/03 17:46:28 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/04 18:29:15 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	print(t_data *data)
 	t_node *item;
 	t_node *itemb;
 	int i;
-
-	if (data->head_a->next  || data->head_b )
+	/* if (!data->head_a || !data->head_b)
+		printf(RED"Empty Stack !\n"RE); */
+	if (data->head_a  || data->head_b )
     {
         item = data->head_a;
-		//itemb = data->head_b;
+		itemb = data->head_b;
         i = 0;
         printf(CYAN"%s", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n");
         printf("Stack A							Stack B\n"RE);
@@ -36,10 +37,7 @@ void	print(t_data *data)
         printf("%i							%i\n", item->num, itemb->num);
         print_node_b(item, itemb);
     }
-	else
-	{
-		printf(RED"Empty Stack !\n"RE);
-	}
+
 }
 
 void	print_node(t_node *new)

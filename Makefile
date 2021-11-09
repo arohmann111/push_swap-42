@@ -19,6 +19,7 @@ LDFLAGS = -Ilibft -Llibft -lft
 LPATH = ./libft/
 
 SRC = main.c \
+input.c \
 nodes.c \
 push.c \
 rev_rotate.c \

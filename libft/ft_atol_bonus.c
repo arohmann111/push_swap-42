@@ -11,7 +11,7 @@ static void	ft_check(char *s, int *error, int *minus)
 	{	
 		if (s[i] == '-' || s[i] == '+')
 			sign += 1;
-		if (ft_strchr("0123456789+- ", s[i]) == 0)
+		if (ft_strchr("0123456789+-", s[i]) == 0)
 			break ;
 		i++;
 	}

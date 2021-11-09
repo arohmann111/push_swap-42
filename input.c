@@ -1,5 +1,65 @@
-/* #include "push_swap.h"
-int	size(int *n)
+#include "push_swap.h"
+
+int	count_args(int	ac, char **av, t_data *data)
+{
+	int		i;
+	int		j;
+	char	**tmp;
+
+	if (ac < 2)
+	{
+		write(2, "Invalid amount of arguments!\n", 30);
+		return (1);
+	}
+	else
+	{
+		i = 1;
+		while (i < ac)
+		{
+			tmp = ft_split(av[i], ' ');
+			if (tmp == NULL)
+				return (1);
+			j = 0;
+			while (tmp[j])
+				j++;
+			data->size += j;
+			i++;
+			free(tmp);
+		}
+	}
+	return (0);
+}
+
+int	parse_args(int ac, char **av, t_data *data)
+{
+	int		i;
+	char	**tmp;
+	int		j;
+	int		error;
+
+	error = 0;
+	count_args(ac, av, data);
+	data->arr = (int *)malloc(sizeof(int) * data->size);
+	if (data->arr == NULL)
+		return (1);
+	i = 1;
+	while (i < ac)
+	{
+		tmp = ft_split(av[i], ' ');
+		if (tmp == NULL)
+			return (1);
+		j = 0;
+		while (tmp[j])
+		{
+			data->arr[(i - 1) + j] = ft_atoi(tmp[j], &error);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+/*int	size(int *n)
 {
 	int i;
 

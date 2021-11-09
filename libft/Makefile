@@ -6,11 +6,13 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/17 11:04:41 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/05 09:26:22 by arohmann         ###   ########.fr        #
+#    Updated: 2021/11/09 13:05:59 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+OBJDIR = obj
 
 CFLAGS = -Wall -Werror -Wextra -c
 SRC = ft_atoi.c \
@@ -61,21 +63,23 @@ ft_lstclear.c \
 ft_lstiter.c \
 ft_lstmap.c
 
+OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
+OBJ_B = $(BONI:%.c=$(OBJDIR)/%.o)
 
-all: $(NAME) bonus
+all: bonus
 	
-$(NAME):
-	gcc $(CFLAGS) $(SRC)
-	ar -crs $(NAME) ft_*.o
-	ar -t $(NAME)
-	
-bonus:
-	gcc $(CFLAGS) ft_*.c
-	ar -crs $(NAME) ft_*.o
-	@ar -t $(NAME)
+$(NAME): $(OBJ)
+	ar -crs $(NAME) $(OBJDIR)/*.o
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(OBJDIR)
+	$(CC) -c $(CFLAGS) $< -o $@
+
+bonus: $(OBJ) $(OBJ_B)
+	ar -crs $(NAME) $(OBJDIR)/*.o
 
 clean:
-	rm -f *.o *~
+	rm -rf $(OBJDIR)
 
 fclean: clean
 	rm -f $(NAME)

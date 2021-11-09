@@ -7,7 +7,7 @@
 #include "./libft/libft.h"
 
 #define GREEN  "\033[32m"
-#define CVIO  "\033[35m"
+#define VIO  "\033[35m"
 #define RED  "\033[31m"
 #define YELL  "\033[33m"
 #define CYAN  "\033[36;1;5m"
@@ -16,7 +16,6 @@
 typedef struct s_node
 {
 	int				num;
-	unsigned int	index;
 	struct s_node	*next;
 	struct s_node	*prev;
 } t_node;
@@ -25,12 +24,14 @@ typedef struct s_data
 {
 	t_node			*head_a;
 	t_node			*head_b;
-	unsigned int	size;
+	t_node			*stack;
+	int				size;
 	int				*arr;
 } t_data;
 
-int	input_check(int ac, char **av);
-int	input(int ac, char **av, t_data *data);
+int	parse_args(int ac, char **av, t_data *data);
+int	count_args(int	ac, char **av, t_data *data);
+t_data	*init_data(void);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/

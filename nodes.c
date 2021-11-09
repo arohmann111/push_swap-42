@@ -23,7 +23,11 @@ void	add_node_prev(t_node **head, t_node *new)
 		new->next = *head;
 	}
 	else
+	{
 		*head = new;
+		new->prev = new;
+		new->next = new;
+	}
 }
 
 void	add_node_next(t_node **head, t_node *new)
@@ -36,7 +40,11 @@ void	add_node_next(t_node **head, t_node *new)
 		new->prev = *head;
 	}
 	else
+	{
 		*head = new;
+		new->prev = new;
+		new->next = new;
+	}
 }
 
 t_node	*rem_node(t_node **r_node)

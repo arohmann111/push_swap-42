@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 17:44:57 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/04 19:23:24 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/10 13:22:02 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	ft_check(char *s, int *error, int *minus)
 	{	
 		if (s[i] == '-' || s[i] == '+')
 			sign += 1;
-		if (ft_strchr("0123456789+-", s[i]) == 0)
+		if (ft_strchr("0123456789+- ", s[i]) == 0)
 			break ;
 		i++;
 	}

@@ -15,15 +15,14 @@ int	get_index(t_data *data, int i)
 	return (index);
 }
 
-int	get_stack_a(t_data *data)
-{
-	//t_node	*new;
+void	create_stack_a(t_data *data)
+{  
 	int		i;
 
 	i = 0;
 	data->stack = (t_node *)malloc(sizeof(t_node)*data->size);
 	if (data->stack == NULL)
-		return (-1);
+		exit (1);
 	while (i < data->size)
 	{
 		add_node_prev(&(data->head_a), &(data->stack[i]));
@@ -31,7 +30,18 @@ int	get_stack_a(t_data *data)
 		i++;
 	}
 	printa(data);
-	return (0);
+}
+
+void	error(t_node *head_a, t_node *head_b, int *arr)
+{
+	if (head_a != NULL)
+		free (head_a);
+	if (head_b != NULL)
+		free (head_b);
+	if (arr != NULL)
+		free (arr);
+	write(1, "Error\n", 7);
+	exit (1);
 }
 
 int	main(int ac, char **av)
@@ -40,36 +50,17 @@ int	main(int ac, char **av)
 	int		i;
 
 	data = init_data();
-	parse_args(ac, av, data);
-	get_stack_a(data);
+	check_input(ac, av, data);
+	create_stack_a(data);
 	i = 0;
 	while (i < data->size)
 		printf("arr: %d\n", data->arr[i++]);
 	printf("size: %d\n", data->size);
-
-	i = 0;
-	//error = 0;
-/* 	if (ac > 1)
-	{
-		printa(data);
-		printb(data);
-
-		while (av[i] != NULL)
-		{
-			new = new_node(ft_atoi(av[i], &error));
-			if (new == NULL)
-				free_list_error();
-			add_node_prev(&data->head_a, new);
-			printa(data);
-			printb(data);
-			i++;
-		}
-	} */
-	/* 	pb(data);
-		printa(data);
-		printb(data);
-		pa(data);
-		printa(data);
-		printb(data); */
+	pb(data);
+	printa(data);
+	printb(data);
+	pa(data);
+	printa(data);
+	printb(data);
 	return (0);
 }

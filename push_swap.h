@@ -29,8 +29,10 @@ typedef struct s_data
 	int				*arr;
 } t_data;
 
-int	parse_args(int ac, char **av, t_data *data);
-int	count_args(int	ac, char **av, t_data *data);
+void	create_stack_a(t_data *data);
+void	check_input(int	ac, char **av, t_data *data);
+void	parse_args(int ac, char **av, t_data *data);
+void	count_args(int	ac, char **av, t_data *data);
 t_data	*init_data(void);
 /**********************************************************/
 /*                        PRINT                           */

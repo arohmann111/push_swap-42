@@ -12,7 +12,10 @@ static void	ft_check(char *s, int *error, int *minus)
 		if (s[i] == '-' || s[i] == '+')
 			sign += 1;
 		if (ft_strchr("0123456789+- ", s[i]) == 0)
-			break ;
+		{
+			*error -= 1;
+			return ;
+		}
 		i++;
 	}
 	if (sign == 1 && s[0] == '-')
@@ -31,7 +34,6 @@ long	ft_atol(char *str, int *error)
 	i = 0;
 	sign = 1;
 	res = 0;
-	error = 0;
 	ft_check(str, error, &sign);
 	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
 		i++;

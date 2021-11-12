@@ -32,7 +32,7 @@ void	create_stack_a(t_data *data)
 	printa(data);
 }
 
-void	error(t_node *head_a, t_node *head_b, int *arr)
+void	free_error(t_node *head_a, t_node *head_b, int *arr)
 {
 	if (head_a != NULL)
 		free (head_a);
@@ -40,7 +40,7 @@ void	error(t_node *head_a, t_node *head_b, int *arr)
 		free (head_b);
 	if (arr != NULL)
 		free (arr);
-	write(1, "Error\n", 7);
+	write(2, "Error\n", 7);
 	exit (1);
 }
 
@@ -56,11 +56,11 @@ int	main(int ac, char **av)
 	while (i < data->size)
 		printf("arr: %d\n", data->arr[i++]);
 	printf("size: %d\n", data->size);
-	pb(data);
+/* 	pb(data);
 	printa(data);
 	printb(data);
 	pa(data);
 	printa(data);
-	printb(data);
+	printb(data); */
 	return (0);
 }

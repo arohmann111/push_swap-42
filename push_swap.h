@@ -31,9 +31,8 @@ typedef struct s_data
 
 void	create_stack_a(t_data *data);
 void	check_input(int	ac, char **av, t_data *data);
-void	parse_args(int ac, char **av, t_data *data);
-void	count_args(int	ac, char **av, t_data *data);
 t_data	*init_data(void);
+void	free_error(t_node *head_a, t_node *head_b, int *arr);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/

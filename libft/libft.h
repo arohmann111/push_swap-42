@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 09:25:38 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/04 19:33:43 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/12 16:22:04 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*ft_lstnew(void *content);
 char	**ft_split(char *s, char c);
+void	ft_free_split(char ***split);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
 char	*ft_strtrim(char const *s1, char const *set);

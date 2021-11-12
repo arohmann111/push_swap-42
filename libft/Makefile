@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/17 11:04:41 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/09 13:05:59 by arohmann         ###   ########.fr        #
+#    Updated: 2021/11/12 12:32:04 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ ft_putendl_fd.c \
 ft_putnbr_fd.c \
 ft_putstr_fd.c \
 ft_split.c \
+ft_free_split_bonus.c \
 ft_strchr.c \
 ft_strdup.c \
 ft_strjoin.c \

@@ -10,7 +10,7 @@
 #define VIO  "\033[35m"
 #define RED  "\033[31m"
 #define YELL  "\033[33m"
-#define CYAN  "\033[36;1;5m"
+#define CYAN  "\033[36;1m"
 #define RE  "\033[0m"
 
 typedef struct s_node

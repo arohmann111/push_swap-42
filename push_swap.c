@@ -44,6 +44,20 @@ void	free_error(t_node *head_a, t_node *head_b, int *arr)
 	exit (1);
 }
 
+int	check_sorted(t_data *data)
+{
+	t_node *tmp;
+
+	tmp = data->head_a;
+	while (tmp && tmp->next)
+	{
+		if (tmp->num > tmp->next->num)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_data	*data;
@@ -53,6 +67,7 @@ int	main(int ac, char **av)
 	check_input(ac, av, data);
 	create_stack_a(data);
 	i = 0;
+	
 	while (i < data->size)
 		printf("arr: %d\n", data->arr[i++]);
 	printf("size: %d\n", data->size);

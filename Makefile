@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/09 14:37:31 by arohmann         ###   ########.fr        #
+#    Updated: 2021/11/15 16:07:56 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ LPATH = ./libft/
 
 OBJDIR = obj
 
-SRC = main.c \
+SRC = push_swap.c \
 input.c \
 nodes.c \
 push.c \

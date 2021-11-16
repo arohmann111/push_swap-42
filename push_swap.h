@@ -33,8 +33,10 @@ void	create_stack_a(t_data *data);
 void	check_input(int	ac, char **av, t_data *data);
 t_data	*init_data(void);
 void	free_error(t_node *head_a, t_node *head_b, int *arr);
-int	is_sorted(t_data *data);
+int		is_sorted(t_data *data);
 void	sort_small(t_data *data);
+int		find_smallest(t_node *head);
+void	push_smallest(t_data *data, int pos);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/

@@ -67,10 +67,11 @@ int	main(int ac, char **av)
 	create_stack_a(data);
 	if (is_sorted(data) != 0)
 	{
-		if (ac <= 5)
+		if (data->size <= 5)
 			sort_small(data);
 		/* else
 			sort_big(data); */
 	}
+	//printa(data);
 	return (0);
 }

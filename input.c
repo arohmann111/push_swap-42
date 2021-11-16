@@ -47,11 +47,6 @@ static void	count_args(int	ac, char **av, t_data *data)
 	int		j;
 	char	**tmp;
 
-	if (ac < 2)
-	{
-		write(2, "Invalid amount of arguments!\n", 30);
-		exit (1);
-	}
 	i = 1;
 	while (i < ac)
 	{
@@ -65,6 +60,8 @@ static void	count_args(int	ac, char **av, t_data *data)
 		i++;
 		ft_free_split(&tmp);
 	}
+	if (data->size < 2)
+		exit (1);
 }
 
 static void	parse_args(char **av, t_data *data)
@@ -81,7 +78,7 @@ static void	parse_args(char **av, t_data *data)
 	if (data->arr == NULL)
 		free_error(NULL, NULL, data->arr);
 	i = 1;
-	while (av[i] != '\0')
+	while (av[i])
 	{
 		tmp = ft_split(av[i], ' ');
 		if (tmp == NULL)

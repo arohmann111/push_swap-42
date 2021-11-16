@@ -29,7 +29,7 @@ void	create_stack_a(t_data *data)
 		data->stack[i].num = get_index(data, i);
 		i++;
 	}
-	printa(data);
+	//printa(data);
 }
 
 void	free_error(t_node *head_a, t_node *head_b, int *arr)
@@ -44,7 +44,7 @@ void	free_error(t_node *head_a, t_node *head_b, int *arr)
 	exit (1);
 }
 
-int	check_sorted(t_data *data)
+int	is_sorted(t_data *data)
 {
 	t_node *tmp;
 
@@ -61,21 +61,16 @@ int	check_sorted(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	*data;
-	int		i;
 
 	data = init_data();
 	check_input(ac, av, data);
 	create_stack_a(data);
-	i = 0;
-	
-	while (i < data->size)
-		printf("arr: %d\n", data->arr[i++]);
-	printf("size: %d\n", data->size);
-/* 	pb(data);
-	printa(data);
-	printb(data);
-	pa(data);
-	printa(data);
-	printb(data); */
+	if (is_sorted(data) != 0)
+	{
+		if (ac <= 5)
+			sort_small(data);
+		/* else
+			sort_big(data); */
+	}
 	return (0);
 }

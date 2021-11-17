@@ -7,44 +7,90 @@ static void	sort_two(t_data *data)
 	return ;
 }
 
-static void	sort_three(t_data *data)
+/* static void	sort_three(t_data *data)
 {
+	int	one;
+	int	two;
+	int	three;
 
-	if (data->head_a->num > data->head_a->next->num && data->head_a->next->num > data->head_a->prev->num 
-		&& data->head_a->prev->num < data->head_a->num)
+	one = data->head_a->num;
+	two = data->head_a->next->num;
+	three  = data->head_a->next->next->num;
+	if (one > two && two > three && two < one && three < one)
 		{
 			sa (data);
 			rra (data);
 		}
-	else if (data->head_a->num > data->head_a->next->num && data->head_a->next->num < data->head_a->prev->num 
-		&& data->head_a->prev->num < data->head_a->num)
+	if (one < two && two > three && three > one)
 		{
 			sa (data);
 			ra (data);
 		}
-	else if (data->head_a->num > data->head_a->next->num && data->head_a->next->num < data->head_a->prev->num 
-		&& data->head_a->prev->num > data->head_a->num)
+	else if (one > two && two < three  && three > one)
 			sa (data);
-	else if (data->head_a->num < data->head_a->next->num && data->head_a->next->num > data->head_a->prev->num 
-		&& data->head_a->prev->num < data->head_a->num)
+	else if (one < two && two > three && three < one)
 			ra (data);
-	else if (data->head_a->num < data->head_a->next->num && data->head_a->next->num > data->head_a->prev->num 
-		&& data->head_a->prev->num > data->head_a->num)
+	else if (one < two && two > three && three > one)
 			rra (data);
 
 	return ;
-}
+} */
 
+/* static void	sort_three(t_data *data)
+{
+	int	one;
+	int	two;
+	int	three;
+
+	one = data->head_a->num;
+	two = data->head_a->next->num;
+	three  = data->head_a->prev->num;
+	if (is_sorted(data) == 0)
+		return ;
+	if ((one > two && three > one) || (one > two && two > three) || (two > three && three > one))
+		sa(data);
+	if ((one > three && three < two &&  one < two))
+		rra(data);
+	if (one < two && three < two && one < three)
+		ra(data);
+}
+ */
+static	void sort_three(t_data *data)
+{
+	int	one;
+	int	two;
+	int	three;
+
+	one = data->head_a->num;
+	two = data->head_a->next->num;
+	three  = data->head_a->prev->num;
+	if (one > two && two < three && three > one)
+		sa(data);
+	if (one > two && two > three && three < one)
+	{
+		sa(data);
+		rra(data);
+	}
+	if (one > two && two < three && three < one)
+		ra(data);
+	if (one < two && two > three && three > one)
+	{
+		sa(data);
+		ra(data);
+	}
+	if (one < two && two > three && three < one)
+		rra(data);
+}
 static void	sort_five(t_data *data)
 {
 	int	size;
 	int s_pos;
 
-	size = data->size;
+	size = data->size_a;
 	while (size > 3)
 	{
-		s_pos = find_smallest(data->head_a);
-		//printf("%d\n", s_pos);
+		s_pos = find_smallest(data->head_a, data->size_a);
+		//printf("p: %d\n", s_pos);
 		push_smallest(data, s_pos);
 		size--;
 	}
@@ -56,50 +102,45 @@ static void	sort_five(t_data *data)
 
 void	push_smallest(t_data *data, int pos)
 {
-	int	tmp;
-
-	tmp = data->size;
-	if (pos > (tmp / 2))
+	if (pos <= (data->size_a/ 2))
 	{
-		while (pos <= tmp)
-		{
-			rra(data);
-			pos++;
-		}
-		pb(data);
-	}
-	else
-	{
-		while (pos > 1)
+		while (pos > 0)
 		{
 			ra(data);
 			pos--;
 		}
 		pb(data);
 	}
-  	printa(data);
-	printb(data);
+	else
+	{
+		while (pos < data->size_a)
+		{
+			rra(data);
+			pos++;
+		}
+		pb(data);
+	}
+/* 	printa(data);
+	printb(data); */
 }
 
-int		find_smallest(t_node *head)
+int	find_smallest(t_node *head, int size)
 {
-	t_node *tmp;
-	int		pos;
-	int		val;
-	int		i;
+	int i;
+	int pos;
+	int	val;
 
-	i = 1;
+	i = 0;
 	pos = 0;
 	val = head->num;
-	tmp = head;
-	while (tmp->next != head)
+	while (i < size)
 	{
-		if (val > tmp->num)
+		if (head->num < val)
 		{
-			val = tmp->num;
+			val = head->num;
 			pos = i;
 		}
-		tmp = tmp->next;
+		head = head->next;
 		i++;
 	}
 	return (pos);
@@ -107,11 +148,12 @@ int		find_smallest(t_node *head)
 
 void	sort_small(t_data *data)
 {
-	if (data->size == 2)
+	if (data->size_a == 2)
 		sort_two(data);
-	else if (data->size == 3)
+	else if (data->size_a == 3)
 		sort_three(data);
-	else if (data->size <= 5)
+	else if (data->size_a <= 5)
 		sort_five(data);
+	//printa(data);
 	exit (1);
 }

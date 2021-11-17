@@ -25,7 +25,8 @@ typedef struct s_data
 	t_node			*head_a;
 	t_node			*head_b;
 	t_node			*stack;
-	int				size;
+	int				size_a;
+	int				size_b;
 	int				*arr;
 } t_data;
 
@@ -35,7 +36,7 @@ t_data	*init_data(void);
 void	free_error(t_node *head_a, t_node *head_b, int *arr);
 int		is_sorted(t_data *data);
 void	sort_small(t_data *data);
-int		find_smallest(t_node *head);
+int		find_smallest(t_node *head, int size);
 void	push_smallest(t_data *data, int pos);
 /**********************************************************/
 /*                        PRINT                           */

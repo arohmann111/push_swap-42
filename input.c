@@ -28,10 +28,10 @@ static void	check_dups(t_data *data)
 	if (data->arr == NULL)
 		exit (1);
 	i = 0;
-	while (i < data->size)
+	while (i < data->size_a)
 	{
 		j = 0;
-		while (j < data->size)
+		while (j < data->size_a)
 		{
 			if (data->arr[i]  == data->arr[j] && i != j)
 				free_error(NULL, NULL, data->arr);
@@ -56,11 +56,11 @@ static void	count_args(int	ac, char **av, t_data *data)
 		j = 0;
 		while (tmp[j])
 			j++;
-		data->size += j;
+		data->size_a += j;
 		i++;
 		ft_free_split(&tmp);
 	}
-	if (data->size < 2)
+	if (data->size_a < 2)
 		exit (1);
 }
 
@@ -74,7 +74,7 @@ static void	parse_args(char **av, t_data *data)
 
 	error = 0;
 	c = 0;
-	data->arr = (int *)malloc(sizeof(int) * data->size);
+	data->arr = (int *)malloc(sizeof(int) * data->size_a);
 	if (data->arr == NULL)
 		free_error(NULL, NULL, data->arr);
 	i = 1;

@@ -6,7 +6,7 @@ int	get_index(t_data *data, int i)
 
 	index = 0;
 	j = 0;
-	while (j < data->size)
+	while (j < data->size_a)
 	{
 		if (data->arr[j] < data->arr[i])
 			index++;
@@ -20,10 +20,10 @@ void	create_stack_a(t_data *data)
 	int		i;
 
 	i = 0;
-	data->stack = (t_node *)malloc(sizeof(t_node)*data->size);
+	data->stack = (t_node *)malloc(sizeof(t_node)*data->size_a);
 	if (data->stack == NULL)
 		exit (1);
-	while (i < data->size)
+	while (i < data->size_a)
 	{
 		add_node_prev(&(data->head_a), &(data->stack[i]));
 		data->stack[i].num = get_index(data, i);
@@ -65,9 +65,10 @@ int	main(int ac, char **av)
 	data = init_data();
 	check_input(ac, av, data);
 	create_stack_a(data);
+	//printa(data);
 	if (is_sorted(data) != 0)
 	{
-		if (data->size <= 5)
+		if (data->size_a <= 5)
 			sort_small(data);
 		/* else
 			sort_big(data); */

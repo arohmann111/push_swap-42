@@ -29,7 +29,6 @@ void	create_stack_a(t_data *data)
 		data->stack[i].num = get_index(data, i);
 		i++;
 	}
-	//printa(data);
 }
 
 void	free_error(t_node *head_a, t_node *head_b, int *arr)
@@ -47,13 +46,16 @@ void	free_error(t_node *head_a, t_node *head_b, int *arr)
 int	is_sorted(t_data *data)
 {
 	t_node *tmp;
+	int	i;
 
+	i = 0;
 	tmp = data->head_a;
-	while (tmp && tmp->next)
+	while (i < data->size_a)
 	{
 		if (tmp->num > tmp->next->num)
 			return (1);
 		tmp = tmp->next;
+		i++;
 	}
 	return (0);
 }

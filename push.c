@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:19:36 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/17 15:19:31 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/18 14:31:01 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	pa(t_data *data)
 	data->head_a = data->head_a->prev;
 	data->size_a += 1;
 	data->size_b -= 1;
-	write(1, "pa\n", 4);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_data *data)
@@ -33,5 +33,5 @@ void	pb(t_data *data)
 	data->head_b = data->head_b->prev;
 	data->size_a -= 1;
 	data->size_b += 1;
-	write(1, "pb\n", 4);
+	write(1, "pb\n", 3);
 }

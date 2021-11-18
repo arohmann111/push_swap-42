@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:40:03 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/16 15:03:13 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/18 14:30:04 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sa(t_data *data)
 	tmp = data->head_a->num;
 	data->head_a->num = data->head_a->next->num;
 	data->head_a->next->num = tmp;
-	write(1, "sa\n", 4);
+	write(1, "sa\n", 3);
 	return ;
 }
 
@@ -30,7 +30,7 @@ void	sb(t_data *data)
 	tmp = data->head_b->num;
 	data->head_b->num = data->head_b->next->num;
 	data->head_b->next->num = tmp;
-	write(1, "sb\n", 4);
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_data *data)
@@ -43,5 +43,5 @@ void	ss(t_data *data)
 	tmp = data->head_b->num;
 	data->head_b->num = data->head_b->next->num;
 	data->head_b->next->num = tmp;
-	write(1, "ss\n", 4);
+	write(1, "ss\n", 3);
 }

@@ -7,54 +7,6 @@ static void	sort_two(t_data *data)
 	return ;
 }
 
-/* static void	sort_three(t_data *data)
-{
-	int	one;
-	int	two;
-	int	three;
-
-	one = data->head_a->num;
-	two = data->head_a->next->num;
-	three  = data->head_a->next->next->num;
-	if (one > two && two > three && two < one && three < one)
-		{
-			sa (data);
-			rra (data);
-		}
-	if (one < two && two > three && three > one)
-		{
-			sa (data);
-			ra (data);
-		}
-	else if (one > two && two < three  && three > one)
-			sa (data);
-	else if (one < two && two > three && three < one)
-			ra (data);
-	else if (one < two && two > three && three > one)
-			rra (data);
-
-	return ;
-} */
-
-/* static void	sort_three(t_data *data)
-{
-	int	one;
-	int	two;
-	int	three;
-
-	one = data->head_a->num;
-	two = data->head_a->next->num;
-	three  = data->head_a->prev->num;
-	if (is_sorted(data) == 0)
-		return ;
-	if ((one > two && three > one) || (one > two && two > three) || (two > three && three > one))
-		sa(data);
-	if ((one > three && three < two &&  one < two))
-		rra(data);
-	if (one < two && three < two && one < three)
-		ra(data);
-}
- */
 static	void sort_three(t_data *data)
 {
 	int	one;
@@ -81,6 +33,7 @@ static	void sort_three(t_data *data)
 	if (one < two && two > three && three < one)
 		rra(data);
 }
+
 static void	sort_five(t_data *data)
 {
 	int	size;
@@ -90,7 +43,6 @@ static void	sort_five(t_data *data)
 	while (size > 3)
 	{
 		s_pos = find_smallest(data->head_a, data->size_a);
-		//printf("p: %d\n", s_pos);
 		push_smallest(data, s_pos);
 		size--;
 	}
@@ -120,8 +72,6 @@ void	push_smallest(t_data *data, int pos)
 		}
 		pb(data);
 	}
-/* 	printa(data);
-	printb(data); */
 }
 
 int	find_smallest(t_node *head, int size)
@@ -154,6 +104,5 @@ void	sort_small(t_data *data)
 		sort_three(data);
 	else if (data->size_a <= 5)
 		sort_five(data);
-	//printa(data);
 	exit (1);
 }

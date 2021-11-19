@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:45:46 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/04 18:29:15 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/19 12:41:36 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	printa(t_data *data)
         item = data->head_a;
         i = 0;
 
-        while ((item->next != data->head_a && i < 10))
+        while ((item->next != data->head_a && i < 15))
         {
             printf("%i\n", item->num);
             print_node(item);

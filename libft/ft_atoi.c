@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 17:44:57 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/12 16:53:58 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/19 19:39:01 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_atoi(char *str, int *error)
 	int	i;
 	int	res;
 	int	sign;
-	
+
 	i = 0;
 	sign = 1;
 	res = 0;
@@ -59,13 +59,3 @@ int	ft_atoi(char *str, int *error)
 	}
 	return (sign * res);
 }
-
-/* int	main(void)
-{
-	int error;
-
-	error = 0;
-	ft_atoi("112 +-243  5", &error);
-	printf("%d\n", error);
-	return (0);
-} */

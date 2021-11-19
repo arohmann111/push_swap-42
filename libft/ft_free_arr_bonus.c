@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_split_bonus.c                              :+:      :+:    :+:   */
+/*   ft_free_arr_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/19 19:38:05 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/19 19:39:29 by arohmann         ###   ########.fr       */
+/*   Created: 2021/11/19 19:37:56 by arohmann          #+#    #+#             */
+/*   Updated: 2021/11/19 19:39:25 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_split(char ***split)
+/* frees a 2D array of ints*/
+void	ft_free_arr(int ***arr)
 {
 	int	i;
 
 	i = 0;
-	while ((*split)[i] != NULL)
+	while ((*arr)[i] != NULL)
 	{
-		free((*split)[i]);
-		(*split)[i] = NULL;
+		free((*arr)[i]);
+		(*arr)[i] = NULL;
 		i++;
 	}
-	free(*split);
-	*split = NULL;
+	free(*arr);
+	*arr = NULL;
 }

@@ -72,8 +72,8 @@ int	main(int ac, char **av)
 	{
 		if (data->size_a <= 5)
 			sort_small(data);
-		/* else
-			sort_big(data); */
+		else
+			sort_big(data);
 	}
 	//printa(data);
 	return (0);

@@ -15,6 +15,7 @@
 
 typedef struct s_node
 {
+	int				lis;
 	int				num;
 	struct s_node	*next;
 	struct s_node	*prev;
@@ -36,6 +37,7 @@ t_data	*init_data(void);
 void	free_error(t_node *head_a, t_node *head_b, int *arr);
 int		is_sorted(t_data *data);
 void	sort_small(t_data *data);
+void	sort_big(t_data *data);
 int		find_smallest(t_node *head, int size);
 void	push_smallest(t_data *data, int pos);
 /**********************************************************/
@@ -53,11 +55,9 @@ t_node	*new_node(int content);
 void	add_node_prev(t_node **head, t_node *new);
 void	add_node_next(t_node **head, t_node *new);
 t_node	*rem_node(t_node **r_node);
-
 /**********************************************************/
 /*                      INSTRUCTIONS                      */
 /**********************************************************/
-
 void	sa(t_data *data);
 void	sb(t_data *data);
 void	ss(t_data *data);

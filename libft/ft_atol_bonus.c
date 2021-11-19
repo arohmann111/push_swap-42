@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atol_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/19 19:38:33 by arohmann          #+#    #+#             */
+/*   Updated: 2021/11/19 19:39:17 by arohmann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	ft_check(char *s, int *error, int *minus)
@@ -30,7 +42,7 @@ long	ft_atol(char *str, int *error)
 	int	i;
 	int	res;
 	int	sign;
-	
+
 	i = 0;
 	sign = 1;
 	res = 0;

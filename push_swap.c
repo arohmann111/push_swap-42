@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 	data = init_data();
 	check_input(ac, av, data);
 	create_stack_a(data);
-	//printa(data);
+	printa(data);
 	if (is_sorted(data) != 0)
 	{
 		if (data->size_a <= 5)

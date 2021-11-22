@@ -29,6 +29,7 @@ typedef struct s_data
 	int				size_a;
 	int				size_b;
 	int				*arr;
+	int				lis_l;
 } t_data;
 
 void	create_stack_a(t_data *data);
@@ -39,7 +40,12 @@ int		is_sorted(t_data *data);
 void	sort_small(t_data *data);
 void	sort_big(t_data *data);
 int		find_smallest(t_node *head, int size);
+int		find_s_node(t_node *head, int size);
 void	push_smallest(t_data *data, int pos);
+int		*find_lis(t_data *data);
+void	flag_lis(t_data *data, int *arr);
+int		find_biggest(t_node *head, int size);
+int		find_l_node(t_node *head, int size);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/

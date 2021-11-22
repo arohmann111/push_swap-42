@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:45:46 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/19 12:41:36 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/22 15:28:35 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ void	printa(t_data *data)
         while ((item->next != data->head_a && i < 15))
         {
             printf("%i\n", item->num);
-            print_node(item);
+            //print_node(item);
             item = item->next;
             i++;
         }
         printf("%i\n", item->num);
-        print_node(item);
+        //print_node(item);
     }
 	else
 	{
@@ -95,12 +95,12 @@ void	printb(t_data *data)
         while ((item->next != data->head_b && i < 10))
         {
             printf("%i\n", item->num);
-            print_node(item);
+            //print_node(item);
             item = item->next;
             i++;
         }
         printf("%i\n", item->num);
-        print_node(item);
+        //print_node(item);
     }
 	else
 	{

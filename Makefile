@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/22 16:33:28 by arohmann         ###   ########.fr        #
+#    Updated: 2021/11/23 15:27:30 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ init.c \
 sort_small.c \
 sort_big.c \
 lo_in_seq.c \
+utils.c \
 print.c 
 
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o)

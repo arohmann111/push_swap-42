@@ -17,7 +17,6 @@ static void	check_int(char **av, int ac)
 			free_error(NULL, NULL, NULL);
 		i++;
 	}
-
 }
 
 static void	check_dups(t_data *data)
@@ -78,6 +77,7 @@ static void	parse_args(char **av, t_data *data)
 	if (data->arr == NULL)
 		free_error(NULL, NULL, data->arr);
 	i = 1;
+	
 	while (av[i])
 	{
 		tmp = ft_split(av[i], ' ');

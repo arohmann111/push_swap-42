@@ -20,7 +20,7 @@ void	create_stack_a(t_data *data)
 	int		i;
 
 	i = 0;
-	data->stack = (t_node *)malloc(sizeof(t_node)*data->size_a);
+	data->stack = (t_node *)malloc(sizeof(t_node) * data->size_a);
 	if (data->stack == NULL)
 		exit (1);
 	while (i < data->size_a)
@@ -50,7 +50,7 @@ int	is_sorted(t_data *data)
 
 	i = 0;
 	tmp = data->head_a;
-	while (i < data->size_a)
+	while (i < data->size_a - 1)
 	{
 		if (tmp->num > tmp->next->num)
 			return (1);
@@ -67,7 +67,6 @@ int	main(int ac, char **av)
 	data = init_data();
 	check_input(ac, av, data);
 	create_stack_a(data);
-	printa(data);
 	if (is_sorted(data) != 0)
 	{
 		if (data->size_a <= 5)
@@ -75,6 +74,5 @@ int	main(int ac, char **av)
 		else
 			sort_big(data);
 	}
-	//printa(data);
 	return (0);
 }

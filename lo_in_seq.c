@@ -84,18 +84,23 @@ void	flag_lis(t_data *data, int *arr)
 {
 	int i;
 	int	j;
+	t_node *head;
 
 	i = 0;
+	head = data->head_a;
 	while (i < data->size_a)
 	{
 		j = 0;
 		while (j < data->lis_l)
 		{
-			if (data->head_a->num == arr[j])
-				data->head_a->lis = 1;
+			if (head->num == arr[j])
+			{
+				head->lis = 1;
+				break ;
+			}
 			j++;
 		}
-		data->head_a = data->head_a->next;
+		head = head->next;
 		i++;
 	}
 }

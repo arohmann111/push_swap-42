@@ -74,72 +74,6 @@ void	push_smallest(t_data *data, int pos)
 	}
 }
 
-int	find_smallest(t_node *head, int size)
-{
-	int i;
-	int pos;
-	int	val;
-
-	i = 0;
-	pos = 0;
-	val = head->num;
-	while (i < size)
-	{
-		if (head->num < val)
-		{
-			val = head->num;
-			pos = i;
-		}
-		head = head->next;
-		i++;
-	}
-	return (pos);
-}
-
-int	find_s_node(t_node *head, int size)
-{
-	int i;
-	int pos;
-	int	val;
-
-	i = 0;
-	pos = 0;
-	val = head->num;
-	while (i < size)
-	{
-		if (head->num < val)
-		{
-			val = head->num;
-			pos = i;
-		}
-		head = head->next;
-		i++;
-	}
-	return (val);
-}
-
-int	find_l_node(t_node *head, int size)
-{
-	int i;
-	int pos;
-	int	val;
-
-	i = 0;
-	pos = 0;
-	val = head->num;
-	while (i < size)
-	{
-		if (head->num > val)
-		{
-			val = head->num;
-			pos = i;
-		}
-		head = head->next;
-		i++;
-	}
-	return (val);
-}
-
 void	sort_small(t_data *data)
 {
 	if (data->size_a == 2)
@@ -148,5 +82,6 @@ void	sort_small(t_data *data)
 		sort_three(data);
 	else if (data->size_a <= 5)
 		sort_five(data);
+	//printa(data);
 	exit (1);
 }

@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 19:57:48 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/25 16:23:13 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/11/25 17:49:54 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,66 @@ void	push_pos_a(t_data *data, int pos)
 		pa(data);
 	}
 }
+void	create_opti(t_data *data, t_opti *opti, int posa, int posb)
+{
+	opti->a_up = posa;
+	opti->a_down = data->size_a - posa;
+	opti->b_down = data->size_b - posb;
+	opti->b_up = posb;
+
+	opti->ad_bd = opti->a_down + opti->b_down;
+	opti->ad_bu = opti->a_down + opti->b_up;
+	opti->au_bu = opti->a_up + opti->b_up;
+	opti->au_bd = opti->a_up + opti->b_down;
+}
+
+int		opti_opti(t_opti *opti)
+{
+	if (opti->ad_bd <= opti->ad_bu && opti->ad_bd <= opti->au_bu && opti->ad_bd <= opti->au_bd)
+	{
+		opti->mode = AD_BD;
+		return (opti->ad_bd);
+	}
+	if (opti->ad_bu <= opti->ad_bd && opti->ad_bu <= opti->au_bu && opti->ad_bu <= opti->au_bd)
+	{
+		opti->mode = AD_BU;
+		return (opti->ad_bu);
+	}
+	if (opti->au_bd <= opti->ad_bu && opti->au_bd <= opti->au_bu && opti->au_bd <= opti->ad_bd)
+	{
+		opti->mode = AU_BD;
+		return (opti->au_bd);
+	}
+	else
+	{
+		opti->mode = AU_BU;
+		return (opti->au_bu);
+	}
+}
 
 void	opt_push(t_data *data)
 {
+	t_opti	opti;
+	t_node	*head;
 	int pos;
+	int i;
 
-	while (data->size_b)
+	i = 0;
+	head = data->head_b;
+	data->best = data->size_a + data->size_b;
+	while (i < data->size_b)
 	{
-		pos = find_pos_a(data, data->head_b);
-		push_pos_a(data, pos);
+		pos = find_pos_a(data, head);
+		create_opti(data, &opti, pos, i);
+		opti.opti = opti_opti(&opti);
+		if (opti.opti < data->best)
+		{	
+			data->sort_m = opti.mode;
+			data->best = opti.opti;
+		}
+		i++;
 	}
+	//solve_opti(data);
 }
 
 void	solve_rev(t_data *data)
@@ -118,6 +168,7 @@ void	sort_big(t_data *data)
 
 	arr = find_lis(data);
 	flag_lis(data, arr);
+	//printf("s: %d\n", data->size_a);
 	if (data->lis_l > 1)
 		needs_pb(data);
 	else

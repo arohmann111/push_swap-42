@@ -1,3 +1,4 @@
+
 #include "push_swap.h"
 int	get_index(t_data *data, int i)
 {

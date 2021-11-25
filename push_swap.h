@@ -13,6 +13,12 @@
 #define CYAN  "\033[36;1m"
 #define RE  "\033[0m"
 
+#define AD_BD 1
+#define AD_BU 2
+#define AU_BD 3
+#define AU_BU 4
+
+
 typedef struct s_node
 {
 	int				lis;
@@ -21,15 +27,33 @@ typedef struct s_node
 	struct s_node	*prev;
 } t_node;
 
+typedef struct s_opti
+{
+	int	b_up;
+	int	b_down;
+	int	a_up;
+	int	a_down;
+
+	int	au_bu;
+	int	au_bd;
+	int	ad_bu;
+	int	ad_bd;
+
+	int	opti;
+	int	mode;
+}	t_opti;
+
 typedef struct s_data
 {
-	t_node			*head_a;
-	t_node			*head_b;
-	t_node			*stack;
-	int				size_a;
-	int				size_b;
-	int				*arr;
-	int				lis_l;
+	t_node	*head_a;
+	t_node	*head_b;
+	t_node	*stack;
+	int		size_a;
+	int		size_b;
+	int		*arr;
+	int		lis_l;
+	int		sort_m;
+	int		best;
 } t_data;
 
 void	create_stack_a(t_data *data);

@@ -54,6 +54,9 @@ typedef struct s_data
 	int		lis_l;
 	int		sort_m;
 	int		best;
+	int		best_a;
+	int		best_b;
+	int		best_n;
 } t_data;
 
 void	create_stack_a(t_data *data);

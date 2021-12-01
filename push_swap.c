@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/01 16:50:37 by arohmann          #+#    #+#             */
+/*   Updated: 2021/12/01 17:28:51 by arohmann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
+
 int	get_index(t_data *data, int i)
 {
 	int	j;
@@ -57,23 +69,6 @@ int	is_sorted(t_data *data)
 			return (1);
 		tmp = tmp->next;
 		i++;
-	}
-	return (0);
-}
-
-int	main(int ac, char **av)
-{
-	t_data	*data;
-
-	data = init_data();
-	check_input(ac, av, data);
-	create_stack_a(data);
-	if (is_sorted(data) != 0)
-	{
-		if (data->size_a <= 5)
-			sort_small(data);
-		else
-			sort_big(data);
 	}
 	return (0);
 }

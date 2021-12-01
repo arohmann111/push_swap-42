@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 17:44:57 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/19 19:39:01 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:48:27 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ static void	ft_check(char *s, int *error, int *minus)
 
 int	ft_atoi(char *str, int *error)
 {
-	int	i;
-	int	res;
-	int	sign;
+	int				i;
+	unsigned int	res;
+	int				sign;
 
 	i = 0;
 	sign = 1;
@@ -57,5 +57,7 @@ int	ft_atoi(char *str, int *error)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
+	if (res > INT_MAX || (res > INT_MAX && sign == -1))
+		*error = -1;
 	return (sign * res);
 }

@@ -52,6 +52,7 @@ typedef struct s_data
 	int		size_b;
 	int		*arr;
 	int		lis_l;
+	int		*lis;
 	int		sort_m;
 	int		best;
 	int		best_a;
@@ -73,6 +74,7 @@ int		*find_lis(t_data *data);
 void	flag_lis(t_data *data, int *arr);
 int		find_biggest(t_node *head, int size);
 int		find_l_node(t_node *head, int size);
+int		**create_lis_arr(t_data *data);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/
@@ -91,17 +93,20 @@ t_node	*rem_node(t_node **r_node);
 /**********************************************************/
 /*                      INSTRUCTIONS                      */
 /**********************************************************/
-void	sa(t_data *data);
-void	sb(t_data *data);
-void	ss(t_data *data);
-void	ra(t_data *data);
-void	rb(t_data *data);
-void	rr(t_data *data);
-void	rra(t_data *data);
-void	rrb(t_data *data);
-void	rrr(t_data *data);
-void	pb(t_data *data);
-void	pa(t_data *data);
-
+void	sa(t_data *data, int print);
+void	sb(t_data *data, int print);
+void	ss(t_data *data, int print);
+void	ra(t_data *data, int print);
+void	rb(t_data *data, int print);
+void	rr(t_data *data, int print);
+void	rra(t_data *data, int print);
+void	rrb(t_data *data, int print);
+void	rrr(t_data *data, int print);
+void	pb(t_data *data, int print);
+void	pa(t_data *data, int print);
+/**********************************************************/
+/*                     GET_NEXT_LINE                      */
+/**********************************************************/
+char	*get_next_line(int fd);
 
 #endif

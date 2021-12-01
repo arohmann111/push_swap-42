@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int	**create_lis_arr(t_data *data)
+int	**create_lis_arr(t_data *data)
 {
 	int	**arr;
 	int	i;

@@ -6,11 +6,12 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/23 15:27:30 by arohmann         ###   ########.fr        #
+#    Updated: 2021/12/01 17:58:08 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+NAME_CH = checker
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -32,9 +33,22 @@ sort_small.c \
 sort_big.c \
 lo_in_seq.c \
 utils.c \
-print.c 
+print.c \
+main.c
+
+SRC_CH = checker.c \
+init.c \
+input.c \
+nodes.c \
+push.c \
+rev_rotate.c \
+rotate.c \
+swap.c \
+print.c \
+push_swap.c
 
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
+OBJ_CH = $(SRC_CH.c=$(OBJDIR)/%.o)
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
@@ -42,10 +56,13 @@ $(OBJDIR)/%.o: %.c
 
 .PHONY: libft all clean fclean re bonus $(NAME)
 
-all: $(NAME)
+all: $(NAME) $(NAME_CH)
 
 $(NAME): libft $(OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJDIR)/*.o -o $(NAME)
+	
+$(NAME_CH): libft $(OBJ_CH)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJDIR)/*.o -o $(NAME_CH)
 
 libft:
 	make -C $(LPATH)
@@ -61,4 +78,3 @@ fclean: clean
 re: fclean all
 
 bonus:
-

@@ -6,13 +6,13 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:19:36 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/18 14:31:01 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/01 15:32:48 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_data *data)
+void	pa(t_data *data, int print)
 {
 	t_node *r_node;
 
@@ -21,10 +21,11 @@ void	pa(t_data *data)
 	data->head_a = data->head_a->prev;
 	data->size_a += 1;
 	data->size_b -= 1;
-	write(1, "pa\n", 3);
+	if (print != 0)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_data *data)
+void	pb(t_data *data, int print)
 {
 	t_node *r_node;
 
@@ -33,5 +34,6 @@ void	pb(t_data *data)
 	data->head_b = data->head_b->prev;
 	data->size_a -= 1;
 	data->size_b += 1;
-	write(1, "pb\n", 3);
+	if (print != 0)
+		write(1, "pb\n", 3);
 }

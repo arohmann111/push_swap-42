@@ -3,7 +3,7 @@
 static void	sort_two(t_data *data)
 {
 	if (data->head_a->num > data->head_a->next->num)
-		sa(data);
+		sa(data, 1);
 	return ;
 }
 
@@ -17,21 +17,21 @@ static	void sort_three(t_data *data)
 	two = data->head_a->next->num;
 	three  = data->head_a->prev->num;
 	if (one > two && two < three && three > one)
-		sa(data);
+		sa(data, 1);
 	if (one > two && two > three && three < one)
 	{
-		sa(data);
-		rra(data);
+		sa(data, 1);
+		rra(data, 1);
 	}
 	if (one > two && two < three && three < one)
-		ra(data);
+		ra(data, 1);
 	if (one < two && two > three && three > one)
 	{
-		sa(data);
-		ra(data);
+		sa(data, 1);
+		ra(data, 1);
 	}
 	if (one < two && two > three && three < one)
-		rra(data);
+		rra(data, 1);
 }
 
 static void	sort_five(t_data *data)
@@ -48,7 +48,7 @@ static void	sort_five(t_data *data)
 	}
 	sort_three(data);
 	while(data->head_b)
-		pa(data);
+		pa(data, 1);
 	return ;
 }
 
@@ -58,19 +58,19 @@ void	push_smallest(t_data *data, int pos)
 	{
 		while (pos > 0)
 		{
-			ra(data);
+			ra(data, 1);
 			pos--;
 		}
-		pb(data);
+		pb(data, 1);
 	}
 	else
 	{
 		while (pos < data->size_a)
 		{
-			rra(data);
+			rra(data, 1);
 			pos++;
 		}
-		pb(data);
+		pb(data, 1);
 	}
 }
 

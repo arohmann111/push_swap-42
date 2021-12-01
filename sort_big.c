@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 19:57:48 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/26 15:16:27 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/01 15:29:45 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ static void	needs_pb(t_data *data)
 	while (i < size)
 	{
 		if (data->head_a->lis == 0)
-			pb(data);
+			pb(data, 1);
 		else
-			ra(data);
+			ra(data, 1);
 		i++;
 	}
 }
+
 int	find_pos_a(t_data *data, t_node *node)
 {
 	int i;
@@ -60,7 +61,7 @@ void	rotate_to_0(t_data *data, int pos)
 	{
 		while (pos > 0)
 		{
-			ra(data);
+			ra(data, 1);
 			pos--;
 		}
 	}
@@ -68,11 +69,12 @@ void	rotate_to_0(t_data *data, int pos)
 	{
 		while (pos < data->size_a)
 		{
-			rra(data);
+			rra(data, 1);
 			pos++;
 		}
 	}
 }
+
 void	create_opti(t_data *data, t_opti *opti, int posa, int posb)
 {
 	opti->a_up = posa;
@@ -109,84 +111,82 @@ int		opti_opti(t_opti *opti)
 		return (opti->au_bu);
 	}
 }
+
 void	sort_ad_bd(t_data *data, t_opti *opti)
 {
 	while (opti->a_down > 0 && opti->b_down > 0)
 	{
-		rrr(data);
+		rrr(data, 1);
 		opti->a_down--;
 		opti->b_down--;
 	}
 	while (opti->b_down > 0)
 	{
-		rrb(data);
+		rrb(data, 1);
 		opti->b_down--;
 	}
 	while (opti->a_down > 0)
 	{
-		rra(data);
+		rra(data, 1);
 		opti->a_down--;
 	}
-	pa(data);
+	pa(data, 1);
 }
 
 void	sort_ad_bu(t_data *data, t_opti  *opti)
 {
 	while (opti->a_down > 0)
 	{
-		rra(data);
+		rra(data, 1);
 		opti->a_down--;
 	}
 	while (opti->b_up > 0)
 	{
-		rb(data);
+		rb(data, 1);
 		opti->b_up--;
 	}
-	pa(data);
+	pa(data, 1);
 }
 
 void	sort_au_bd(t_data *data, t_opti *opti)
 {
 	while (opti->a_up > 0)
 	{
-		ra(data);
+		ra(data, 1);
 		opti->a_up--;
 	}
 	while (opti->b_down > 0)
 	{
-		rrb(data);
+		rrb(data, 1);
 		opti->b_down--;
 	}
-	pa(data);
+	pa(data, 1);
 }
+
 void	sort_au_bu(t_data *data, t_opti *opti)
 {
 	while (opti->a_up > 0 && opti->b_up > 0)
 	{
-		rr(data);
+		rr(data, 1);
 		opti->a_up--;
 		opti->b_up--;
 	}
 	while (opti->b_up > 0)
 	{
-		rb(data);
+		rb(data, 1);
 		opti->b_up--;
 	}
 	while (opti->a_up > 0)
 	{
-		ra(data);
+		ra(data, 1);
 		opti->a_up--;
 	}
-	pa(data);
+	pa(data, 1);
 }
 
 void	solve_opti(t_data *data, t_opti *opti)
 {
 	create_opti(data, opti, data->best_a, data->best_b);
-/* 	printf("ad: %d\n", opti->a_down);
-	printf("au: %d\n", opti->a_up);
-	printf("bd: %d\n", opti->b_down);
-	printf("bu: %d\n\n\n", opti->b_up); */
 	if (data->sort_m == AD_BD)
 		sort_ad_bd(data, opti);
 	else if (data->sort_m == AD_BU)
@@ -217,7 +217,6 @@ void	opt_push(t_data *data)
 			opti.opti = opti_opti(&opti);
 			if (opti.opti < data->best)
 			{	
-				//printf("####################hez\n");
 				data->sort_m = opti.mode;
 				data->best = opti.opti;
 				data->best_a = pos;
@@ -227,59 +226,22 @@ void	opt_push(t_data *data)
 			head = head->next;
 			i++;
 		}
-/* 		printf("mode: %d\n", data->sort_m);
-		printf("b_num: %d\n", data->best_n); */
-/* 		printf("num: %d\n", head->num);
-		printf("b: %d\n", data->best);
-		printf("ba: %d\n", data->best_a);
-		printf("bb: %d\n\n\n", data->best_b); */
-/* 		printa(data);
-		printb(data); */
 		solve_opti(data, &opti);
 	}
-	//printf("s: %d", data->size_b);
 	return ;
-}
-
-void	solve_rev(t_data *data)
-{
-	int i;
-	int size;
-
-	i = 0;
-	size = data->size_a;
-	while (i < size - 1)
-	{	
-		rra(data);
-		pb(data);
-		data->head_a = data->head_a->next;
-		i++;
-	}
-	rrb(data);
-	while (i < size + 1)
-	{
-		pa(data);
-		data->head_b = data->head_b->next;
-		i++;
-	}
 }
 
 void	sort_big(t_data *data)
 {
 	int	*arr;
 	int	pos;
-	
+
 	arr = find_lis(data);
 	flag_lis(data, arr);
-	if (data->lis_l > 1)
-		needs_pb(data);
-	else
-		solve_rev(data);
+	needs_pb(data);;
 	opt_push(data);
 	pos = find_smallest(data->head_a, data->size_a);
 	rotate_to_0(data, pos);
-	//printa(data);
-	//printb(data);
-	exit(0);
 	//ft_free_arr(arr);
+	exit(0);
 }

@@ -11,7 +11,7 @@ static void	check_int(char **av, int ac)
 	error1 = 0;
 	while(i < ac)
 	{
-		if ((long)ft_atoi(av[i], &error) != ft_atol(av[i], &error1))
+		if (ft_atoi(av[i], &error) != ft_atol(av[i], &error1))
 			free_error(NULL, NULL, NULL);
 		if (error != 0 || error1 != 0)
 			free_error(NULL, NULL, NULL);

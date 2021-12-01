@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 09:25:38 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/19 19:51:31 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:27:19 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <stdlib.h>
 # include <stddef.h>
 # include <unistd.h>
-# include  <math.h>
+# include <math.h>
+# include <limits.h>
 
 typedef struct s_list
 {

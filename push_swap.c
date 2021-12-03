@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 16:50:37 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/01 17:28:51 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:53:51 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int	get_index(t_data *data, int i)
 }
 
 void	create_stack_a(t_data *data)
-{  
-	int		i;
+{
+	int	i;
 
 	i = 0;
 	data->stack = (t_node *)malloc(sizeof(t_node) * data->size_a);
@@ -58,8 +58,8 @@ void	free_error(t_node *head_a, t_node *head_b, int *arr)
 
 int	is_sorted(t_data *data)
 {
-	t_node *tmp;
-	int	i;
+	t_node	*tmp;
+	int		i;
 
 	i = 0;
 	tmp = data->head_a;

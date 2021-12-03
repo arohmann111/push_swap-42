@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/12/01 17:58:08 by arohmann         ###   ########.fr        #
+#    Updated: 2021/12/03 13:28:45 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ OBJDIR = obj
 SRC = push_swap.c \
 input.c \
 nodes.c \
+opti.c \
+opti_utils.c \
 push.c \
 rev_rotate.c \
 rotate.c \
@@ -45,24 +47,27 @@ rev_rotate.c \
 rotate.c \
 swap.c \
 print.c \
+get_next_line.c \
 push_swap.c
 
 OBJ = $(SRC:%.c=$(OBJDIR)/%.o)
-OBJ_CH = $(SRC_CH.c=$(OBJDIR)/%.o)
+OBJ_CH = $(SRC_CH:%.c=$(OBJDIR)/%.o) 
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
 	$(CC) -c $(CFLAGS) $< -o $@
 
-.PHONY: libft all clean fclean re bonus $(NAME)
+
+
+.PHONY: libft all clean fclean re bonus $(NAME) $(NAME_CH)
 
 all: $(NAME) $(NAME_CH)
 
 $(NAME): libft $(OBJ)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJDIR)/*.o -o $(NAME)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ) -o $(NAME)
 	
 $(NAME_CH): libft $(OBJ_CH)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJDIR)/*.o -o $(NAME_CH)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(OBJ_CH) -o $(NAME_CH)
 
 libft:
 	make -C $(LPATH)

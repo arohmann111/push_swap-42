@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 13:05:12 by arohmann          #+#    #+#             */
+/*   Updated: 2021/12/03 13:05:15 by arohmann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	find_biggest(t_node *head, int size)
 {
-	int i;
-	int pos;
+	int	i;
+	int	pos;
 	int	val;
 
 	i = 0;
@@ -24,8 +36,8 @@ int	find_biggest(t_node *head, int size)
 
 int	find_smallest(t_node *head, int size)
 {
-	int i;
-	int pos;
+	int	i;
+	int	pos;
 	int	val;
 
 	i = 0;
@@ -46,8 +58,8 @@ int	find_smallest(t_node *head, int size)
 
 int	find_s_node(t_node *head, int size)
 {
-	int i;
-	int pos;
+	int	i;
+	int	pos;
 	int	val;
 
 	i = 0;
@@ -68,8 +80,8 @@ int	find_s_node(t_node *head, int size)
 
 int	find_l_node(t_node *head, int size)
 {
-	int i;
-	int pos;
+	int	i;
+	int	pos;
 	int	val;
 
 	i = 0;

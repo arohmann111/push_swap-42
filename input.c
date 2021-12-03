@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   input.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 13:41:55 by arohmann          #+#    #+#             */
+/*   Updated: 2021/12/03 13:45:43 by arohmann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	check_int(char **av, int ac)
@@ -9,7 +21,7 @@ static void	check_int(char **av, int ac)
 	i = 1;
 	error = 0;
 	error1 = 0;
-	while(i < ac)
+	while (i < ac)
 	{
 		if (ft_atoi(av[i], &error) != ft_atol(av[i], &error1))
 			free_error(NULL, NULL, NULL);
@@ -21,9 +33,9 @@ static void	check_int(char **av, int ac)
 
 static void	check_dups(t_data *data)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	if (data->arr == NULL)
 		exit (1);
 	i = 0;
@@ -32,7 +44,7 @@ static void	check_dups(t_data *data)
 		j = 0;
 		while (j < data->size_a)
 		{
-			if (data->arr[i]  == data->arr[j] && i != j)
+			if (data->arr[i] == data->arr[j] && i != j)
 				free_error(NULL, NULL, data->arr);
 			j++;
 		}
@@ -61,6 +73,9 @@ static void	count_args(int	ac, char **av, t_data *data)
 	}
 	if (data->size_a < 2)
 		exit (1);
+	data->arr = (int *)malloc(sizeof(int) * data->size_a);
+	if (data->arr == NULL)
+		free_error(NULL, NULL, data->arr);
 }
 
 static void	parse_args(char **av, t_data *data)
@@ -73,11 +88,7 @@ static void	parse_args(char **av, t_data *data)
 
 	error = 0;
 	c = 0;
-	data->arr = (int *)malloc(sizeof(int) * data->size_a);
-	if (data->arr == NULL)
-		free_error(NULL, NULL, data->arr);
 	i = 1;
-	
 	while (av[i])
 	{
 		tmp = ft_split(av[i], ' ');

@@ -1,23 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 13:52:57 by arohmann          #+#    #+#             */
+/*   Updated: 2021/12/03 13:52:59 by arohmann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "./libft/libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include "./libft/libft.h"
 
-#define GREEN  "\033[32m"
-#define VIO  "\033[35m"
-#define RED  "\033[31m"
-#define YELL  "\033[33m"
-#define CYAN  "\033[36;1m"
-#define RE  "\033[0m"
+# define GREEN  "\033[32m"
+# define VIO  "\033[35m"
+# define RED  "\033[31m"
+# define YELL  "\033[33m"
+# define CYAN  "\033[36;1m"
+# define RE  "\033[0m"
 
-#define AD_BD 1
-#define AD_BU 2
-#define AU_BD 3
-#define AU_BU 4
-
+# define AD_BD 1
+# define AD_BU 2
+# define AU_BD 3
+# define AU_BU 4
 
 typedef struct s_node
 {
@@ -25,7 +36,7 @@ typedef struct s_node
 	int				num;
 	struct s_node	*next;
 	struct s_node	*prev;
-} t_node;
+}	t_node;
 
 typedef struct s_opti
 {
@@ -58,7 +69,7 @@ typedef struct s_data
 	int		best_a;
 	int		best_b;
 	int		best_n;
-} t_data;
+}	t_data;
 
 void	create_stack_a(t_data *data);
 void	check_input(int	ac, char **av, t_data *data);
@@ -75,6 +86,16 @@ void	flag_lis(t_data *data, int *arr);
 int		find_biggest(t_node *head, int size);
 int		find_l_node(t_node *head, int size);
 int		**create_lis_arr(t_data *data);
+/**********************************************************/
+/*                      OPTI-PUSH                         */
+/**********************************************************/
+void	solve_opti(t_data *data, t_opti *opti);
+int		opti_opti(t_opti *opti);
+void	create_opti(t_data *data, t_opti *opti, int posa, int posb);
+void	sort_ad_bd(t_data *data, t_opti *opti);
+void	sort_ad_bu(t_data *data, t_opti *opti);
+void	sort_au_bd(t_data *data, t_opti *opti);
+void	sort_au_bu(t_data *data, t_opti *opti);
 /**********************************************************/
 /*                        PRINT                           */
 /**********************************************************/

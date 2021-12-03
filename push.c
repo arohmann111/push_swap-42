@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 16:19:36 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/01 15:32:48 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/03 13:51:00 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	pa(t_data *data, int print)
 {
-	t_node *r_node;
+	t_node	*r_node;
 
 	r_node = rem_node(&data->head_b);
 	add_node_prev(&data->head_a, r_node);
@@ -27,7 +27,7 @@ void	pa(t_data *data, int print)
 
 void	pb(t_data *data, int print)
 {
-	t_node *r_node;
+	t_node	*r_node;
 
 	r_node = rem_node(&data->head_a);
 	add_node_prev(&data->head_b, r_node);

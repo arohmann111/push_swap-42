@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   nodes.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/03 13:50:01 by arohmann          #+#    #+#             */
+/*   Updated: 2021/12/03 13:50:03 by arohmann         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*new_node(int content)
 {
 	t_node	*new;
-	
+
 	new = (t_node *)malloc(sizeof(t_node));
 	if (new == NULL)
 		return (NULL);
@@ -49,7 +61,7 @@ void	add_node_next(t_node **head, t_node *new)
 
 t_node	*rem_node(t_node **r_node)
 {
-	t_node *node;
+	t_node	*node;
 
 	node = *r_node;
 	if ((*r_node)->next == *r_node)

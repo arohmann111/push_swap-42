@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/22 09:58:55 by arohmann          #+#    #+#              #
-#    Updated: 2021/12/03 13:28:45 by arohmann         ###   ########.fr        #
+#    Updated: 2021/12/03 16:22:19 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,6 @@ sort_small.c \
 sort_big.c \
 lo_in_seq.c \
 utils.c \
-print.c \
 main.c
 
 SRC_CH = checker.c \
@@ -46,7 +45,6 @@ push.c \
 rev_rotate.c \
 rotate.c \
 swap.c \
-print.c \
 get_next_line.c \
 push_swap.c
 
@@ -78,6 +76,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(NAME_CH)
 	make clean -C $(LPATH)
 
 re: fclean all

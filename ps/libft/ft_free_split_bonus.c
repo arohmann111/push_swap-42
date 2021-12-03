@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 19:38:05 by arohmann          #+#    #+#             */
-/*   Updated: 2021/11/19 19:39:29 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/03 15:42:24 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_free_split(char ***split)
 		(*split)[i] = NULL;
 		i++;
 	}
-	free(*split);
+	if (*split != NULL)
+		free(*split);
 	*split = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:52:57 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/03 13:52:59 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/03 15:10:03 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,23 @@ typedef struct s_data
 	int		best_n;
 }	t_data;
 
-void	create_stack_a(t_data *data);
-void	check_input(int	ac, char **av, t_data *data);
 t_data	*init_data(void);
+void	check_input(int	ac, char **av, t_data *data);
+void	create_stack_a(t_data *data);
 void	free_error(t_node *head_a, t_node *head_b, int *arr);
 int		is_sorted(t_data *data);
 void	sort_small(t_data *data);
 void	sort_big(t_data *data);
 int		find_smallest(t_node *head, int size);
-int		find_s_node(t_node *head, int size);
 void	push_smallest(t_data *data, int pos);
+int		find_biggest(t_node *head, int size);
+int		find_s_node(t_node *head, int size);
+int		find_l_node(t_node *head, int size);
+/**********************************************************/
+/*              LONGEST-INCREASING-SUBSEQUENCE            */
+/**********************************************************/
 int		*find_lis(t_data *data);
 void	flag_lis(t_data *data, int *arr);
-int		find_biggest(t_node *head, int size);
-int		find_l_node(t_node *head, int size);
 int		**create_lis_arr(t_data *data);
 /**********************************************************/
 /*                      OPTI-PUSH                         */
@@ -96,14 +99,6 @@ void	sort_ad_bd(t_data *data, t_opti *opti);
 void	sort_ad_bu(t_data *data, t_opti *opti);
 void	sort_au_bd(t_data *data, t_opti *opti);
 void	sort_au_bu(t_data *data, t_opti *opti);
-/**********************************************************/
-/*                        PRINT                           */
-/**********************************************************/
-void	print(t_data *data);
-void	printa(t_data *data);
-void	printb(t_data *data);
-void	print_node(t_node *new);
-void	print_node_b(t_node *new, t_node *newb);
 /**********************************************************/
 /*                        NODES                           */
 /**********************************************************/

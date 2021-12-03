@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 19:40:28 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/03 14:58:36 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:21:55 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static int	exec_acts(char *act, t_data *data)
 	else if (ft_strcmp(act, "pb\n") == 0)
 		pb(data, 0);
 	else
-		free_error(data->head_a, data->head_b, data->arr);
-	return (0);
+		free_error(NULL, NULL, NULL);
+	return (1);
 }
 
 static int	read_acts(t_data *data)
@@ -49,12 +49,13 @@ static int	read_acts(t_data *data)
 	while (line)
 	{
 		exec_acts(line, data);
-		free(line);
+		if (line != NULL)
+			free(line);
 		line = get_next_line(0);
 	}
 	if (line != NULL)
 		free(line);
-	return (0);
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -71,6 +72,7 @@ int	main(int ac, char **av)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	free(data);
+	if (data != NULL)
+		free(data);
 	return (0);
 }

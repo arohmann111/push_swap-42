@@ -102,7 +102,6 @@ void	sort_au_bu(t_data *data, t_opti *opti);
 /**********************************************************/
 /*                        NODES                           */
 /**********************************************************/
-t_node	*new_node(int content);
 void	add_node_prev(t_node **head, t_node *new);
 void	add_node_next(t_node **head, t_node *new);
 t_node	*rem_node(t_node **r_node);

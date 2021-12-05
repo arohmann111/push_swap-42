@@ -12,19 +12,6 @@
 
 #include "push_swap.h"
 
-t_node	*new_node(int content)
-{
-	t_node	*new;
-
-	new = (t_node *)malloc(sizeof(t_node));
-	if (new == NULL)
-		return (NULL);
-	new->num = content;
-	new->prev = new;
-	new->next = new;
-	return (new);
-}
-
 void	add_node_prev(t_node **head, t_node *new)
 {
 	if (*head != NULL)

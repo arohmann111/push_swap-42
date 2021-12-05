@@ -66,9 +66,27 @@ static int	**make_lis(t_data *data, int **arr)
 	return (arr);
 }
 
+static int	*cpy_arr(t_data *data, int *arr)
+{
+	int	*res;
+	int	j;
+
+	j = 0;
+	res = (int *)malloc(sizeof(int) * data->lis_l);
+	if (res == NULL)
+		return (NULL);
+	while (j < data->lis_l)
+	{
+		res[j] = arr[j];
+		j++;
+	}
+	return (res);
+}
+
 int	*find_lis(t_data *data)
 {
 	int	**arr;
+	int	*res;
 	int	i;
 	int	k;
 
@@ -89,7 +107,9 @@ int	*find_lis(t_data *data)
 	while (arr[i][i] != -1)
 		i++;
 	data->lis_l = i;
-	return (arr[i - 1]);
+	res = cpy_arr(data, arr[i - 1]);
+	ft_free_arr(&arr);
+	return (res);
 }
 
 void	flag_lis(t_data *data, int *arr)

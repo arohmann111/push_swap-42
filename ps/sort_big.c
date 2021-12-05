@@ -117,5 +117,6 @@ void	sort_big(t_data *data)
 	}
 	pos = find_smallest(data->head_a, data->size_a);
 	rotate_to_0(data, pos);
+	system("leaks push_swap");
 	exit(0);
 }

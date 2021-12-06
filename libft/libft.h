@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 09:25:38 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/01 16:27:19 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:20:20 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ void	*ft_calloc(size_t num, size_t size);
 void	ft_bzero(void *str, size_t n);
 char	**ft_split(char *s, char c);
 void	ft_free_split(char ***split);
-void	ft_free_arr(int ***arr);
+void	ft_free_arr(int ***arr, int len);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 #endif

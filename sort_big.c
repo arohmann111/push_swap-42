@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/19 19:57:48 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/03 13:26:21 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:27:58 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,5 @@ void	sort_big(t_data *data)
 	}
 	pos = find_smallest(data->head_a, data->size_a);
 	rotate_to_0(data, pos);
-	system("leaks push_swap");
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 13:47:10 by arohmann          #+#    #+#             */
-/*   Updated: 2021/12/03 13:48:57 by arohmann         ###   ########.fr       */
+/*   Updated: 2021/12/06 12:20:55 by arohmann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	*find_lis(t_data *data)
 		i++;
 	data->lis_l = i;
 	res = cpy_arr(data, arr[i - 1]);
-	ft_free_arr(&arr);
+	ft_free_arr(&arr, data->size_a);
 	return (res);
 }
 

@@ -6,7 +6,7 @@
 #    By: arohmann <arohmann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/17 11:04:41 by arohmann          #+#    #+#              #
-#    Updated: 2021/11/19 19:52:29 by arohmann         ###   ########.fr        #
+#    Updated: 2021/12/06 12:26:38 by arohmann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,11 +71,11 @@ OBJ_B = $(BONI:%.c=$(OBJDIR)/%.o)
 all: bonus
 	
 $(NAME): $(OBJ)
-	ar -crs $(NAME) $(OBJDIR)/*.o
+	@ar -crs $(NAME) $(OBJDIR)/*.o
 
 $(OBJDIR)/%.o: %.c
 	@mkdir -p $(OBJDIR)
-	$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 bonus: $(OBJ) $(OBJ_B)
 	ar -crs $(NAME) $(OBJDIR)/*.o
